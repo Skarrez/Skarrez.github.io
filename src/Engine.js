@@ -37,7 +37,7 @@ class Engine {
         this.sim_loop = setInterval(()=>{
             this.updateSimDeltaTime();
             this.environmentUpdate();
-        }, 1000/fps);
+        }, 500000/fps);
         this.running = true;
         if (this.fps >= min_render_speed) {
             if (this.ui_loop != null) {
@@ -65,7 +65,7 @@ class Engine {
             this.ui_loop = setInterval(()=> {
                 this.updateUIDeltaTime();
                 this.necessaryUpdate();
-            }, 1000/min_render_speed);
+            }, 500000/min_render_speed);
         }
     }
 
@@ -82,7 +82,7 @@ class Engine {
     }
 
     environmentUpdate() {
-        this.actual_fps = (1000/this.sim_delta_time);
+        this.actual_fps = (500000/this.sim_delta_time);
         
         if(WorldConfig.skip_frames){
             this.skipped_fps = this.actual_fps/(this.render_period+1);
